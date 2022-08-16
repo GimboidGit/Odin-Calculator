@@ -4,33 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Calculator</title>
 </head>
 <body>
+    <h1>Basic Calculator</h1>
     <div class="calculator">
         <div class="display">
-            <input type="text" id="disp" value="Values Here." readonly>
+            <input type="text" id="disp" value="0" readonly>
         </div>
-        <div class="digits">
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-        </div>
-        <div class="operators">
-            <button>+</button>
-            <button>-</button>
-            <button>x</button>
-            <button>÷</button>
-        </div>
-        <div class="actions">
-            <button>=</button>
-            <button>C</button>
+        <div class="digit-container">
+            <div class="digits">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>C</button>
+                <button>.</button>
+                <button>=</button>
+            </div>
+            <div class="operators">
+                <button>÷</button>
+                <button>x</button>
+                <button>-</button>
+                <button>+</button>
+            </div>
         </div>
     </div>
 </body>

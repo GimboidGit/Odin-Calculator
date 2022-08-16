@@ -1,0 +1,58 @@
+h1 {
+    text-align: center;
+}
+
+input {
+    text-align: right;
+    font-size: xx-large;
+}
+
+
+
+/* Class Rules */
+.calculator {
+    margin: auto;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.digit-container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    gap: 20px;
+}
+
+.digits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 350px;
+}
+
+.digits button {
+    width: 100px;
+    height: 100px;
+    font-size: xx-large;
+}
+
+.operators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 50px;
+}
+
+.operators button {
+    width: 60px;
+    height: 50px;
+    font-size: xx-large;
+}
