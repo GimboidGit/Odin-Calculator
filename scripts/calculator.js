@@ -35,3 +35,5 @@ function Operate(operation, a, b)
             return Divide(a, b);
     }
 }
+
+export { Operate };
