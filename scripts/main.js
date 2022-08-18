@@ -28,15 +28,14 @@ buttons.forEach
 
 const DEFAULT_VALUE = 0;
 
-let displayValue = DEFAULT_VALUE;
-let currentSum = DEFAULT_VALUE;
+let displayValue;
+let currentSum;
 
-let leftOperand = null;
-let operator = null;
-let rightOperand = null;
+let leftOperand;
+let operator;
+let rightOperand;
 
-UpdateDisplay(DEFAULT_VALUE);
-
+ClearAndReset();
 
 
 //Single function for all buttons.
@@ -44,7 +43,15 @@ UpdateDisplay(DEFAULT_VALUE);
 //of telling what the action to take is.
 function ButtonClick(event)
 {
-    alert(event.target.innerText);
+    //alert(event.target.innerText);
+
+    let buttonValue = event.target.innerText;
+
+    if (buttonValue == "C")
+    {
+        ClearAndReset();
+        return;
+    }
 }
 
 
@@ -52,4 +59,17 @@ function UpdateDisplay(value)
 {
     const displayField = document.getElementById("disp");
     displayField.setAttribute("value", value);
+}
+
+
+function ClearAndReset()
+{
+    displayValue = DEFAULT_VALUE;
+    currentSum = DEFAULT_VALUE;
+
+    leftOperand = null;
+    operator = null;
+    rightOperand = null;
+
+    UpdateDisplay(DEFAULT_VALUE);
 }
