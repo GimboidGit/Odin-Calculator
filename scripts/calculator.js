@@ -22,16 +22,16 @@ function Operate(operation, a, b)
 {
     switch (operation)
     {
-        case "ADD":
+        case "+":
             return Add(a, b);
 
-        case "SUB":
+        case "-":
             return Subtract(a, b);
 
-        case "MULT":
+        case "x":
             return Multiply(a, b);
 
-        case "DIVI":
+        case "÷":
             return Divide(a, b);
     }
 }

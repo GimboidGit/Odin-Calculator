@@ -47,10 +47,26 @@ function ButtonClick(event)
 
     let buttonValue = event.target.innerText;
 
-    if (buttonValue == "C")
+    if (buttonValue === "C")
     {
         ClearAndReset();
         return;
+    }
+
+    if (buttonValue === "." && !displayValue.includes("."))
+    {
+        displayValue += ".";
+        UpdateDisplay(displayValue);
+        return;
+    }
+
+    if (Number.isInteger(Number(buttonValue)))
+    {
+        displayValue === String(DEFAULT_VALUE)
+            ? displayValue = buttonValue 
+            : displayValue += buttonValue;
+
+        UpdateDisplay(displayValue);
     }
 }
 
@@ -64,7 +80,7 @@ function UpdateDisplay(value)
 
 function ClearAndReset()
 {
-    displayValue = DEFAULT_VALUE;
+    displayValue = String(DEFAULT_VALUE);
     currentSum = DEFAULT_VALUE;
 
     leftOperand = null;
