@@ -28,12 +28,12 @@ buttons.forEach
 
 const DEFAULT_VALUE = 0;
 
-let displayValue;
-let currentSum;
+let DisplayValue;
+let OngoingSum;
 
-let leftOperand;
-let operator;
-let rightOperand;
+let LeftOperand;
+let Operator;
+let RightOperand;
 
 ClearAndReset();
 
@@ -44,7 +44,7 @@ ClearAndReset();
 function ButtonClick(event)
 {
     //alert(event.target.innerText);
-
+    let parent = event.target.parentNode.className;
     let buttonValue = event.target.innerText;
 
     if (buttonValue === "C")
@@ -53,20 +53,77 @@ function ButtonClick(event)
         return;
     }
 
-    if (buttonValue === "." && !displayValue.includes("."))
+    if (buttonValue === "." && !DisplayValue.includes("."))
     {
-        displayValue += ".";
-        UpdateDisplay(displayValue);
+        DisplayValue += ".";
+        UpdateDisplay(DisplayValue);
         return;
     }
 
     if (Number.isInteger(Number(buttonValue)))
     {
-        displayValue === String(DEFAULT_VALUE)
-            ? displayValue = buttonValue 
-            : displayValue += buttonValue;
+        /*
+        If a number is clicked when there 
+        is an ongoing sum, then the calculator 
+        will be cleared/reset!
+        */
 
-        UpdateDisplay(displayValue);
+        if (Operator === null && OngoingSum)
+            ClearAndReset();
+
+        DisplayValue === String(DEFAULT_VALUE)
+            ? DisplayValue = buttonValue 
+            : DisplayValue += buttonValue;
+
+        UpdateDisplay(DisplayValue);
+        return;
+    }
+
+    //What happens when an Operator is clicked?
+    if (parent === "operators")
+    {
+        if (!OngoingSum)
+            UpdateOperand(DisplayValue);
+        
+        //If we already have an operator
+        //then "shortcut" to calculate/"=" button
+        if (Operator !== null)
+        {
+            UpdateOperand(DisplayValue);
+            let result = Operate(Operator, Number(LeftOperand), Number(RightOperand));
+            UpdateDisplay(result);
+            LeftOperand = result;
+            Operator = null;
+            RightOperand = null;
+            OngoingSum = true;
+            return;
+        }
+        
+        UpdateDisplay(buttonValue);
+        DisplayValue = String(DEFAULT_VALUE);
+        Operator = buttonValue;
+        return;
+    }
+
+    //What happens when "=" is clicked?
+    if (buttonValue === "=" && DisplayValue !== String(DEFAULT_VALUE))
+    {
+        if (Operator === null)
+            return;
+
+        //What happens if "=" is pressed,
+        //with no right op chosen yet?
+
+        UpdateOperand(DisplayValue);
+        
+        let result = Operate(Operator, Number(LeftOperand), Number(RightOperand));
+        UpdateDisplay(result);
+        
+        LeftOperand = result;
+        Operator = null;
+        RightOperand = null;
+
+        OngoingSum = true;
     }
 }
 
@@ -80,12 +137,20 @@ function UpdateDisplay(value)
 
 function ClearAndReset()
 {
-    displayValue = String(DEFAULT_VALUE);
-    currentSum = DEFAULT_VALUE;
+    DisplayValue = String(DEFAULT_VALUE);
+    OngoingSum = false;
 
-    leftOperand = null;
-    operator = null;
-    rightOperand = null;
+    LeftOperand = null;
+    Operator = null;
+    RightOperand = null;
 
     UpdateDisplay(DEFAULT_VALUE);
+}
+
+
+function UpdateOperand(value)
+{
+    LeftOperand === null
+    ? LeftOperand = value
+    : RightOperand = value;
 }
