@@ -39,11 +39,8 @@ ClearAndReset();
 
 
 //Single function for all buttons.
-//We'll read the button's text as a means
-//of telling what the action to take is.
 function ButtonClick(event)
 {
-    //alert(event.target.innerText);
     let parent = event.target.parentNode.className;
     let buttonValue = event.target.innerText;
 
@@ -62,12 +59,6 @@ function ButtonClick(event)
 
     if (Number.isInteger(Number(buttonValue)))
     {
-        /*
-        If a number is clicked when there 
-        is an ongoing sum, then the calculator 
-        will be cleared/reset!
-        */
-
         if (Operator === null && OngoingSum)
             ClearAndReset();
 
@@ -79,7 +70,6 @@ function ButtonClick(event)
         return;
     }
 
-    //What happens when an Operator is clicked?
     if (parent === "operators")
     {
         if (!OngoingSum)
@@ -104,8 +94,7 @@ function ButtonClick(event)
         Operator = buttonValue;
         return;
     }
-
-    //What happens when "=" is clicked?
+    
     if (buttonValue === "=" && DisplayValue !== String(DEFAULT_VALUE))
     {
         if (Operator === null)
