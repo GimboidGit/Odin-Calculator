@@ -117,13 +117,6 @@ function ButtonClick(event)
 }
 
 
-function UpdateDisplay(value)
-{
-    const displayField = document.getElementById("disp");
-    displayField.setAttribute("value", value);
-}
-
-
 function ClearAndReset()
 {
     DisplayValue = String(DEFAULT_VALUE);
@@ -134,6 +127,13 @@ function ClearAndReset()
     RightOperand = null;
 
     UpdateDisplay(DEFAULT_VALUE);
+}
+
+
+function UpdateDisplay(value)
+{
+    const displayField = document.getElementById("disp");
+    displayField.setAttribute("value", value);
 }
 
 
