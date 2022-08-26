@@ -93,10 +93,17 @@ function ButtonClick(event)
         return;
     }
     
-    if (buttonValue === "=" && DisplayValue !== String(DEFAULT_VALUE))
+    if (buttonValue === "=")
     {
         if (Operator === null)
             return;
+
+        if (Operator === "÷" && DisplayValue === String(DEFAULT_VALUE))
+        {
+            ClearAndReset();
+            UpdateDisplay("Can't Divide by 0!");
+            return;
+        }
 
         Calculate();
     }
