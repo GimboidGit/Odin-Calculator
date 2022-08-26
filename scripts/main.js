@@ -60,7 +60,10 @@ function ButtonClick(event)
     if (Number.isInteger(Number(buttonValue)))
     {
         if (Operator === null && OngoingSum)
+        {
             ClearAndReset();
+            return;
+        }
 
         DisplayValue === String(DEFAULT_VALUE)
             ? DisplayValue = buttonValue 
@@ -79,13 +82,7 @@ function ButtonClick(event)
         //then "shortcut" to calculate/"=" button
         if (Operator !== null)
         {
-            UpdateOperand(DisplayValue);
-            let result = Operate(Operator, Number(LeftOperand), Number(RightOperand));
-            UpdateDisplay(result);
-            LeftOperand = result;
-            Operator = null;
-            RightOperand = null;
-            OngoingSum = true;
+            Calculate();
             return;
         }
         
@@ -103,17 +100,23 @@ function ButtonClick(event)
         //What happens if "=" is pressed,
         //with no right op chosen yet?
 
-        UpdateOperand(DisplayValue);
-        
-        let result = Operate(Operator, Number(LeftOperand), Number(RightOperand));
-        UpdateDisplay(result);
-        
-        LeftOperand = result;
-        Operator = null;
-        RightOperand = null;
-
-        OngoingSum = true;
+        Calculate();
     }
+}
+
+
+function Calculate()
+{
+    UpdateOperand(DisplayValue);
+        
+    let result = Operate(Operator, Number(LeftOperand), Number(RightOperand));
+    UpdateDisplay(result);
+    
+    LeftOperand = result;
+    Operator = null;
+    RightOperand = null;
+
+    OngoingSum = true;
 }
 
 
