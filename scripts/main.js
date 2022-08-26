@@ -83,6 +83,7 @@ function ButtonClick(event)
         if (Operator !== null)
         {
             Calculate();
+            Operator = buttonValue;
             return;
         }
         
@@ -109,6 +110,8 @@ function Calculate()
     let result = Operate(Operator, Number(LeftOperand), Number(RightOperand));
     UpdateDisplay(result);
     
+    DisplayValue = String(DEFAULT_VALUE);
+
     LeftOperand = result;
     Operator = null;
     RightOperand = null;
