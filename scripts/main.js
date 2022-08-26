@@ -97,9 +97,6 @@ function ButtonClick(event)
         if (Operator === null)
             return;
 
-        //What happens if "=" is pressed,
-        //with no right op chosen yet?
-
         Calculate();
     }
 }
