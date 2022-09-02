@@ -23,6 +23,5 @@ Made with JavaScript.
 
 
 ## Planned Updates
-- Fresh coat of paint!
 - Backspace Key
 - Keyboard Support
