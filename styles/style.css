@@ -12,6 +12,10 @@ body {
     height: 708px;
     margin: auto;
     margin-top: 20px;
+
+    background-image: url("pencils.jpg");
+
+    box-shadow: rgba(0, 0, 0, 0.550) 0px 3px 8px;
 }
 
 h1 {
@@ -28,7 +32,7 @@ input {
 /* Class Rules */
 .calculator {
     margin: auto;
-    background-color: lightseagreen;
+    background-color: #6f8d8b;
 }
 
 .display {
