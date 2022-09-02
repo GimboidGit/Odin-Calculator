@@ -6,6 +6,16 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach
     (button => button.addEventListener("click", ButtonClick));
 
+
+document.addEventListener("keydown", function(event) 
+{
+    const button = document.getElementById(`${event.key}`);
+    
+    if (button !== null)
+        button.click();
+});
+
+
 //#endregion DOM Interaction
 
 

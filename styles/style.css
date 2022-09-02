@@ -66,11 +66,11 @@ input {
     color: rgb(34, 34, 34);
 }
 
-#clear {
+#Escape {
     background-color: #f44336;
 }
 
-#calculate {
+#Enter {
     background-color: #4CAF50;
 }
 
