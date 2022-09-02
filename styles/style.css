@@ -5,6 +5,15 @@
 }
 
 
+body {
+    border-color: steelblue;
+    border-style: solid;
+    width: 500px;
+    height: 708px;
+    margin: auto;
+    margin-top: 20px;
+}
+
 h1 {
     text-align: center;
 }
@@ -19,6 +28,7 @@ input {
 /* Class Rules */
 .calculator {
     margin: auto;
+    background-color: lightseagreen;
 }
 
 .display {
@@ -47,7 +57,19 @@ input {
     width: 100px;
     height: 100px;
     font-size: xx-large;
+
+    background-color: lightgrey;
+    color: rgb(34, 34, 34);
 }
+
+#clear {
+    background-color: #f44336;
+}
+
+#calculate {
+    background-color: #4CAF50;
+}
+
 
 .operators {
     display: flex;
@@ -63,4 +85,6 @@ input {
     height: 50px;
     font-size: xx-large;
     margin-top: 20px;
+
+    background-color: orange;
 }
