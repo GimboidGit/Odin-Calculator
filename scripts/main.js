@@ -98,13 +98,6 @@ function ButtonClick(event)
         if (Operator === null)
             return;
 
-        if (Operator === "÷" && DisplayValue === String(DEFAULT_VALUE))
-        {
-            ClearAndReset();
-            UpdateDisplay("Can't Divide by 0!");
-            return;
-        }
-
         Calculate();
     }
 }
@@ -112,6 +105,13 @@ function ButtonClick(event)
 
 function Calculate()
 {
+    if (Operator === "÷" && DisplayValue === String(DEFAULT_VALUE))
+    {
+        ClearAndReset();
+        UpdateDisplay("Can't Divide by 0!");
+        return;
+    }
+
     UpdateOperand(DisplayValue);
         
     let result = Operate(Operator, Number(LeftOperand), Number(RightOperand));
