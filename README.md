@@ -24,4 +24,4 @@ Made with JavaScript.
 
 ## Planned Updates
 - Backspace Key
-- Keyboard Support
+- Change colour of Operator buttons when they're "selected"
